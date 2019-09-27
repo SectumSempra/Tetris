@@ -19,9 +19,11 @@ public class GameController : MonoBehaviour
     private float dropInterval = 0.2f;
     private float timeToDrop;
     private bool isGameOver;
+    private ScoreManager scoreManager;
 
     private float timeToNextKey = 0;
     private float keyRepeatRate = 0.01f;
+    private float dropIntervalModded;
 
     void Start()
     {
@@ -31,6 +33,7 @@ public class GameController : MonoBehaviour
         spawner.transform.position = Vectorf.Round(spawner.transform.position);
         activeShape = getSpawnShape(spawner);
         soundManager = FindObjectOfType<SoundManager>();
+        scoreManager = FindObjectOfType<ScoreManager>();
 
         if (pausePanel)
             pausePanel.SetActive(false);
@@ -38,7 +41,7 @@ public class GameController : MonoBehaviour
         if (restartPanel)
             restartPanel.SetActive(false);
 
-
+        dropIntervalModded = dropInterval;
     }
 
     private Shape getSpawnShape(Spawner spawner)
@@ -48,7 +51,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (!board || !spawner || !activeShape || isGameOver)
+        if (!board || !spawner || !activeShape || isGameOver || !soundManager || !scoreManager)
         { return; }
 
         FallingAction();
@@ -66,7 +69,7 @@ public class GameController : MonoBehaviour
     {
         if (Time.time > timeToDrop)
         {
-            timeToDrop = Time.time + dropInterval;
+            timeToDrop = Time.time + dropIntervalModded;
 
             if (activeShape)
             {
@@ -190,8 +193,15 @@ public class GameController : MonoBehaviour
         board.ClearAllRow();
         if (board.clearedRowCountAtOnce > 0)
         {
+            scoreManager.ScoreLines(board.clearedRowCountAtOnce);
             PlaySoundAtOnce(soundManager.clearSound, 1.5f);
-            PlaySoundAtOnce(soundManager.GetRandomAudioClip(soundManager.vocalSounds), 1.3f);
+            if (scoreManager.isLevelUp)
+            {
+                PlaySoundAtOnce(soundManager.levelUpClip);
+                dropIntervalModded = Mathf.Clamp(dropInterval - ((float)scoreManager.level - 1) * 0.05f, 0.05f, 1f);
+            }
+            else
+                PlaySoundAtOnce(soundManager.GetRandomAudioClip(soundManager.vocalSounds), 1.3f);
         }
     }
 
@@ -212,5 +222,8 @@ public class GameController : MonoBehaviour
 
 
     }
+
+
+
 
 }

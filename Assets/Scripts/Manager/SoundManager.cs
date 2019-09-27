@@ -21,6 +21,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip gameOverClip;
     public IconToggle iconToggleMusic;
     public IconToggle iconToggleFX;
+    public AudioClip levelUpClip;
 
     void Start()
     {

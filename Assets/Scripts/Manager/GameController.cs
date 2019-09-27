@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     public SoundManager soundManager;
     public bool isPaused = false;
     public GameObject pausePanel;
+    public Ghost ghost;
 
     //PRIVATE
     private Board board;
@@ -34,6 +35,7 @@ public class GameController : MonoBehaviour
         activeShape = getSpawnShape(spawner);
         soundManager = FindObjectOfType<SoundManager>();
         scoreManager = FindObjectOfType<ScoreManager>();
+        ghost = FindObjectOfType<Ghost>();
 
         if (pausePanel)
             pausePanel.SetActive(false);
@@ -79,7 +81,7 @@ public class GameController : MonoBehaviour
                 {
                     activeShape.moveUp();
                     board.StoreShapeInGrid(activeShape);
-
+                    ghost.ResetGhost();
                     if (board.IsOverLimit(activeShape))
                     {
                         GameOver();
@@ -139,6 +141,7 @@ public class GameController : MonoBehaviour
             if (!board.IsValidPosition(activeShape))
             {
                 activeShape.moveUp();
+                ghost.ResetGhost();
                 ClearRows();
 
                 if (board.IsOverLimit(activeShape))
@@ -223,7 +226,13 @@ public class GameController : MonoBehaviour
 
     }
 
-
+    void LateUpdate()
+    {
+        if(ghost)
+        {
+            ghost.DrawGhost(activeShape,board);
+        }
+    }
 
 
 }

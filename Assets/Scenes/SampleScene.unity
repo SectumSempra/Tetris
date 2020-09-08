@@ -1546,8 +1546,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMusicEnable: 0
   isFxEnable: 1
-  musicVolume: 0.466
-  fxVolume: 0.475
+  musicVolume: 0.199
+  fxVolume: 0.213
   clearSound: {fileID: 8300000, guid: 5e573cc7e2cd44522a9dbd65bd61eb95, type: 3}
   moveSound: {fileID: 8300000, guid: 232745a37421848f0b6ba281e2775fd1, type: 3}
   dropSound: {fileID: 8300000, guid: 2912ce0f9e2544ed7947ea6ba42a1347, type: 3}
@@ -3227,7 +3227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd0a8bcf59cb4474aa15fc12ea28461c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0.5276789, g: 0.8952947, b: 0.9245283, a: 0.5254902}
+  color: {r: 0.83725184, g: 0.8784314, b: 0.7490196, a: 0.4745098}
 --- !u!4 &1165550600
 Transform:
   m_ObjectHideFlags: 0
@@ -3713,7 +3713,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f16ac7378cdeca64a8e29ecedbb29e7c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6a13608b8a0f3c54ab43e052ced9acc6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4621,13 +4621,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.324
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 125
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

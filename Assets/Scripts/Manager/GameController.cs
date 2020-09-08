@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
     private ScoreManager scoreManager;
 
     private float timeToNextKey = 0;
-    private float keyRepeatRate = 0.01f;
+    private float keyRepeatRate = 0.001f;
     private float dropIntervalModded;
 
     void Start()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
-    public Color color = new Color(1f, 1f, 1f, 0.2f);
+    public Color color = new Color(.7f, .7f, .7f, 0.2f);
 
     private Shape ghostShape;
     private bool hitButtom = false;

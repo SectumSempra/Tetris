@@ -63,7 +63,7 @@ public class Spawner : MonoBehaviour
         for (int i = 1; i < queShape.Length; i++)
         {
             queShape[i - 1] = queShape[i];
-            queShape[i - 1].transform.position = queShape[i].transform.position;
+            queShape[i - 1].transform.position = queForms[i-1].transform.position;
         }
 
         queShape[queShape.Length - 1] = null;

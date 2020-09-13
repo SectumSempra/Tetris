@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour
     public Text lineText;
     public Text levetText;
     public Text scoreText;
-    public bool isLevelUp=false;
+    public bool isLevelUp = false;
 
     private int score = 0;
     private int lines;
@@ -25,12 +25,6 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         ResetScore();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void ScoreLines(int n)

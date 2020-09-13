@@ -9,24 +9,11 @@ public class Ghost : MonoBehaviour
     private Shape ghostShape;
     private bool hitButtom = false;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void DrawGhost(Shape orginalShape, Board board)
     {
-        if (!ghostShape)
+        if (ghostShape == null)
         {
-            ghostShape = Instantiate(orginalShape, orginalShape.transform.position, orginalShape.transform.rotation) as Shape;
+            ghostShape = Instantiate(orginalShape, orginalShape.transform.position, orginalShape.transform.rotation);
             ghostShape.gameObject.name = "GhostShape";
             SpriteRenderer[] allSpriteRenderers = ghostShape.GetComponentsInChildren<SpriteRenderer>();
 
@@ -45,10 +32,10 @@ public class Ghost : MonoBehaviour
         }
 
         hitButtom = false;
-        while(!hitButtom)
+        while (!hitButtom)
         {
             ghostShape.moveDown();
-            if(!board.IsValidPosition(ghostShape))
+            if (!board.IsValidPosition(ghostShape))
             {
                 ghostShape.moveUp();
                 hitButtom = true;

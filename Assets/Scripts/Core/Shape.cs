@@ -44,8 +44,4 @@ public class Shape : MonoBehaviour
             this.transform.Rotate(Vector3.forward, 90);
     }
 
-    private void Start()
-    {
-    }
-
 }

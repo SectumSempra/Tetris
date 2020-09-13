@@ -48,7 +48,7 @@ public class GameController : MonoBehaviour
 
     private Shape getSpawnShape(Spawner spawner)
     {
-        return spawner.getSpawnShape().GetComponent<Shape>(); ;
+        return spawner.GetSpawnShape().GetComponent<Shape>(); ;
     }
 
     void Update()
